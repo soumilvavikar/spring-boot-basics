@@ -1,5 +1,7 @@
 package io.pivotal.workshop.springbootweb;
 
+import io.pivotal.workshop.springbootweb.properties.PersonProperties;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;

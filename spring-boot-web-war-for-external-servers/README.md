@@ -16,11 +16,24 @@
         : Here the name of the WAR is important, as tomcat uses the name of the WAR as the context path
         : Rename the WAR to spring-boot-web.war and then start the tomcat
         : URLs - http://localhost:8080/spring-boot-web | http://localhost:8080/spring-boot-web/hello
+
     Option 2 -
         : Start the application directly using - java -jar target/spring-boot-web.war
         : URLs: http://localhost:8080/ | http://localhost:8080/hello
 
+    Option 3 -
+        : Load Properties from Prod Config -
+            SPRING_PROFILES_ACTIVE=production java -jar target/spring-boot-web.war
+            SPRING_PROFILES_ACTIVE=production java -jar target/spring-boot-web-0.0.1-SNAPSHOT.war
 
+    Option 4 -
+        : Override properties using cmd line arguments
+            java -jar target/spring-boot-web.war --message='Hello from a command line arg!'
+
+: Reading properties from an external properties file -->
+    - Check the implementation at the following location:
+        - src/main/resources/application.properties
+        - HelloController1.java --> helloMessage() and message variable
 
 
 : Quick Help Links:
