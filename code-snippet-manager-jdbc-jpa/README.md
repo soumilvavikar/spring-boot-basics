@@ -29,5 +29,21 @@
                                                                  	"code": "console.log('Snippet Title - Hello World')"
                                                                  }
 
+
+: Actuator URLs (All GET URLs, except for shutdown):
+: http://localhost:8080/configprops
+: http://localhost:8080/springbeans
+: http://localhost:8080/info
+: http://localhost:8080/health
+: http://localhost:8080/trace
+: http://localhost:8080/metrics
+: http://localhost:8080/mappings
+: http://localhost:8080/autoconfig
+: http://localhost:8080/heapdump
+: http://localhost:8080/dump.json | http://localhost:8080/dump
+: http://localhost:8080/env
+: http://localhost:8080/shutdown (POST Method)
+: Custom METRICS - http://localhost:8080/metrics/counter.services.greeting.invoked
+
 Quick Reads:
 : https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#jpa.query-methods

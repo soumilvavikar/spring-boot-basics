@@ -3,6 +3,7 @@ package io.pivotal.workshop.controller;
 import io.pivotal.workshop.domain.Snippet;
 import io.pivotal.workshop.repository.SnippetRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.actuate.metrics.CounterService;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,6 +18,18 @@ import java.util.List;
 public class SnippetController {
 	@Autowired
 	SnippetRepository snippetRepository;
+	private final CounterService counterService;
+
+	@Autowired
+	public SnippetController(CounterService counterService) {
+		this.counterService = counterService;
+	}
+
+	@GetMapping("/")
+	public String hello() {
+		counterService.increment("counter.services.greeting.invoked");
+		return "Hello World!!!";
+	}
 
 	@GetMapping("/snippets")
 	public List<Snippet> snippets() {
