@@ -1,4 +1,4 @@
-package io.pivotal.workshop.codesnippetmanagerjdbc;
+package io.pivotal.workshop.domain;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
