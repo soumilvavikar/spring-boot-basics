@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.util.ArrayList;
+import java.sql.Date;
 import java.util.List;
 
 @RestController
@@ -20,7 +21,7 @@ public class SnippetController {
 	@GetMapping("/snippets")
 	public List<Snippet> snippets() {
 		List<Snippet> snippets = new ArrayList<>();
-		for(Snippet snippet : snippetRepository.findAll()){
+		for (Snippet snippet : snippetRepository.findAll()) {
 			snippets.add(snippet);
 		}
 		return snippets;
@@ -29,6 +30,18 @@ public class SnippetController {
 	@GetMapping("/snippet/{id}")
 	public Snippet snippet(@PathVariable("id") String id) {
 		return snippetRepository.findOne(id);
+	}
+
+	@GetMapping("/snippet/title/{title}")
+	public Snippet snippetByTitle(@PathVariable("title") String title) {
+		return snippetRepository.findByTitleLike(title);
+	}
+
+	@GetMapping("/snippet/created")
+	public List<Snippet> snippetByCreated(@RequestParam("start") String start,
+			@RequestParam("end") String end) {
+		return snippetRepository.findByCreatedBetween(Date.valueOf(start),
+				Date.valueOf(end));
 	}
 
 	@PostMapping("/snippet")
